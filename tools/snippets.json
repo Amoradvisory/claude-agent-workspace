@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "description": "Bibliotheque de snippets reutilisables",
+    "usage": "python cx.py snippet <nom> ou importer depuis scripts"
+  },
+  "python": {
+    "read_csv": "import pandas as pd\ndf = pd.read_csv('fichier.csv')\nprint(df.head())",
+    "read_excel": "import pandas as pd\ndf = pd.read_excel('fichier.xlsx', sheet_name='Feuil1')\nprint(df.head())",
+    "read_json": "import json\nwith open('fichier.json', 'r', encoding='utf-8') as f:\n    data = json.load(f)",
+    "write_json": "import json\nwith open('output.json', 'w', encoding='utf-8') as f:\n    json.dump(data, f, indent=2, ensure_ascii=False)",
+    "http_get": "import httpx\nresp = httpx.get('https://api.example.com/data', timeout=15)\ndata = resp.json()",
+    "http_post": "import httpx\nresp = httpx.post('https://api.example.com/data', json={'key': 'value'}, timeout=15)\nprint(resp.status_code, resp.json())",
+    "create_docx": "from docx import Document\ndoc = Document()\ndoc.add_heading('Titre', level=0)\ndoc.add_paragraph('Contenu')\ndoc.save('document.docx')",
+    "create_pptx": "from pptx import Presentation\nprs = Presentation()\nslide = prs.slides.add_slide(prs.slide_layouts[0])\nslide.shapes.title.text = 'Titre'\nprs.save('presentation.pptx')",
+    "read_pdf": "from PyPDF2 import PdfReader\nreader = PdfReader('fichier.pdf')\nfor page in reader.pages:\n    print(page.extract_text())",
+    "argparse_template": "import argparse\nparser = argparse.ArgumentParser(description='Description')\nparser.add_argument('input', help='Fichier entree')\nparser.add_argument('--output', '-o', default='output.txt')\nargs = parser.parse_args()",
+    "subprocess_run": "import subprocess\nr = subprocess.run(['commande', 'arg1'], capture_output=True, text=True, timeout=30)\nprint(r.stdout)",
+    "datetime_now": "from datetime import datetime\nnow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')"
+  },
+  "powershell": {
+    "list_processes": "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 10 Name, Id, @{N='RAM_MB';E={[math]::Round($_.WorkingSet64/1MB,1)}}",
+    "system_info": "Get-CimInstance Win32_OperatingSystem | Select-Object TotalVisibleMemorySize, FreePhysicalMemory",
+    "clipboard_read": "Get-Clipboard",
+    "clipboard_write": "Set-Clipboard -Value 'texte'",
+    "focus_window": "Add-Type @\"\nusing System; using System.Runtime.InteropServices;\npublic class W { [DllImport(\"user32.dll\")] public static extern bool SetForegroundWindow(IntPtr h); }\n\"@",
+    "screenshot": "Add-Type -AssemblyName System.Windows.Forms\n$bmp = New-Object System.Drawing.Bitmap([System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Width, [System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Height)"
+  },
+  "html": {
+    "boilerplate": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre</title>\n</head>\n<body>\n  <h1>Hello</h1>\n</body>\n</html>",
+    "responsive_grid": "<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;\"></div>",
+    "dark_theme": "body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', sans-serif; }"
+  },
+  "git": {
+    "init_project": "git init && git add -A && git commit -m 'Initial commit'",
+    "undo_last": "git reset --soft HEAD~1",
+    "see_changes": "git diff --stat",
+    "quick_save": "git add -A && git commit -m 'Update'",
+    "log_pretty": "git log --oneline -10 --format='%h %s (%ar)'"
+  }
+}

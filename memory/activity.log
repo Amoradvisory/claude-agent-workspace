@@ -1,0 +1,23 @@
+[2026-03-15 06:28:05] [INFO ] API GET https://httpbin.org/get | {"status": 200}
+[2026-03-15 06:48:49] [ERROR] analyze a echoue: 'set' object is not subscriptable | {"args": "('Ceci est un texte de test. Ce texte contient des mots repetes repetes et des   doubles espaces. Les lignes sont variees.\\n', 'output/test_quality.txt')"}
+[2026-03-15 06:49:18] [INFO ] PDF merge: 2 fichiers -> output/merged_test.pdf
+[2026-03-15 06:49:24] [INFO ] PDF split: pages 1-1 -> output/split_test.pdf
+[2026-03-15 06:49:26] [INFO ] PDF watermark: CONFIDENTIEL -> output/watermarked_test.pdf
+[2026-03-15 06:50:00] [INFO ] Word genere: C:\Users\user\Desktop\claude test 2\output\_test.docx
+[2026-03-15 06:50:01] [INFO ] PPTX genere: C:\Users\user\Desktop\claude test 2\output\_test.pptx
+[2026-03-15 07:00:48] [INFO ] Image resize: 400x300 -> 200x150
+[2026-03-15 07:00:49] [INFO ] Image compress: 2KB -> 2KB (-5% reduction)
+[2026-03-15 07:00:51] [INFO ] Image convert: PNG -> JPEG
+[2026-03-15 07:01:07] [INFO ] Chart bar: Ville vs Salaire -> output/_test_chart.html
+[2026-03-15 07:02:06] [INFO ] Word genere: C:\Users\user\Desktop\claude test 2\output\_test.docx
+[2026-03-15 07:02:07] [INFO ] PPTX genere: C:\Users\user\Desktop\claude test 2\output\_test.pptx
+[2026-03-15 07:02:12] [INFO ] Image resize: 400x300 -> 100x75
+[2026-03-15 07:02:16] [INFO ] Chart bar: Ville vs Salaire -> C:\Users\user\Desktop\claude test 2\output\_test_chart.html
+[2026-03-16 21:22:21] [INFO ] Word genere: C:\Users\user\Desktop\claude test 2\output\_test.docx
+[2026-03-16 21:22:28] [INFO ] PPTX genere: C:\Users\user\Desktop\claude test 2\output\_test.pptx
+[2026-03-16 21:22:58] [INFO ] Image resize: 400x300 -> 100x75
+[2026-03-16 21:23:31] [INFO ] Chart bar: Ville vs Salaire -> C:\Users\user\Desktop\claude test 2\output\_test_chart.html
+[2026-03-16 21:28:10] [INFO ] Word genere: C:\Users\user\Desktop\claude test 2\output\_test.docx
+[2026-03-16 21:28:15] [INFO ] PPTX genere: C:\Users\user\Desktop\claude test 2\output\_test.pptx
+[2026-03-16 21:28:47] [INFO ] Image resize: 400x300 -> 100x75
+[2026-03-16 21:28:55] [INFO ] Chart bar: Ville vs Salaire -> C:\Users\user\Desktop\claude test 2\output\_test_chart.html

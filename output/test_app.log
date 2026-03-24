@@ -1,0 +1,19 @@
+2026-03-16T09:00:01 INFO  Application started on port 8080
+2026-03-16T09:00:05 INFO  Connected to database
+2026-03-16T09:01:12 INFO  GET /api/users 200 45ms
+2026-03-16T09:01:15 WARN  Slow query detected: SELECT * FROM users (320ms)
+2026-03-16T09:02:30 ERROR ConnectionRefusedError: Redis connection failed on port 6379
+2026-03-16T09:02:31 ERROR Traceback (most recent call last):
+  File "app.py", line 45, in get_cache
+    return redis.get(key)
+  ConnectionRefusedError: Connection refused
+2026-03-16T09:03:00 INFO  GET /api/health 200 5ms
+2026-03-16T09:03:45 WARN  Memory usage at 78%
+2026-03-16T09:04:12 ERROR TimeoutError: Database query timeout after 30s
+2026-03-16T09:04:13 INFO  Retrying database connection...
+2026-03-16T09:04:15 INFO  Database reconnected
+2026-03-16T09:05:00 INFO  GET /api/users 200 50ms
+2026-03-16T09:06:00 DEBUG Cache miss for key user:123
+2026-03-16T09:07:30 ERROR ValueError: Invalid user ID format
+2026-03-16T09:08:00 INFO  GET /api/products 200 120ms
+2026-03-16T09:09:00 WARN  Rate limit approaching for IP 192.168.1.100

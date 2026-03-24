@@ -1,0 +1,1 @@
+Ceci est un texte de test. Ce texte contient des mots repetes repetes et des doubles espaces. Les lignes sont variees.

@@ -1,0 +1,77 @@
+{
+  "_meta": "Checklists executables pour les workflows courants",
+  "deploy": {
+    "title": "Deploiement",
+    "steps": [
+      "Verifier que tous les tests passent (cx self_test)",
+      "Verifier le git status (cx git status)",
+      "Creer un commit propre (cx git save 'release: vX.Y')",
+      "Generer le changelog (cx git changelog)",
+      "Verifier les dependances (cx deps)",
+      "Pousser vers le remote (git push)"
+    ]
+  },
+  "code_review": {
+    "title": "Revue de code",
+    "steps": [
+      "Lire le diff complet (cx git diff)",
+      "Verifier les imports inutilises",
+      "Verifier la gestion d'erreurs (try/except)",
+      "Verifier les hardcoded values (tokens, chemins)",
+      "Verifier la documentation (docstrings)",
+      "Verifier les noms de variables (snake_case)",
+      "Tester manuellement les cas limites",
+      "Valider avec self_test"
+    ]
+  },
+  "new_feature": {
+    "title": "Nouvelle fonctionnalite",
+    "steps": [
+      "Definir le besoin en une phrase",
+      "Verifier si un script existant couvre deja le besoin (cx help)",
+      "Si non : creer le script dans scripts/",
+      "Ajouter la commande dans cx.py",
+      "Ajouter un test dans self_test.py",
+      "Ajouter un snippet si pattern reutilisable",
+      "Mettre a jour CLAUDE.md",
+      "Commit (cx git save 'feat: ...')"
+    ]
+  },
+  "debug": {
+    "title": "Debug systematique",
+    "steps": [
+      "Reproduire le bug de facon fiable",
+      "Lire le message d'erreur complet",
+      "Identifier le fichier et la ligne",
+      "Formuler 2-3 hypotheses",
+      "Tester chaque hypothese",
+      "Appliquer le fix minimal",
+      "Verifier : le bug est-il resolu ?",
+      "Verifier : pas de regression (cx self_test)",
+      "Documenter dans memory/log.md"
+    ]
+  },
+  "morning": {
+    "title": "Check matinal",
+    "steps": [
+      "Diagnostic systeme (cx system all)",
+      "Espace disque (cx system disk)",
+      "Git status (cx git status)",
+      "Verifier les taches planifiees",
+      "Lire le log d'activite recent"
+    ]
+  },
+  "new_script": {
+    "title": "Creer un nouveau script CX",
+    "steps": [
+      "Creer le fichier dans scripts/ (snake_case.py)",
+      "Importer from _common import ensure, safe, print_json, log_info",
+      "Ajouter argparse pour les parametres CLI",
+      "Ajouter la docstring avec Usage",
+      "Enregistrer dans cx.py COMMANDS dict",
+      "Ajouter un test dans self_test.py",
+      "Tester manuellement",
+      "Commit"
+    ]
+  }
+}

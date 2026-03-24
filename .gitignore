@@ -1,0 +1,21 @@
+# Tokens & secrets
+configs/.env
+*.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Output temporaire
+output/*.tmp
+
+# OS
+.DS_Store
+Thumbs.db

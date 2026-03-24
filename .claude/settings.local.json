@@ -1,10 +1,21 @@
 {
   "permissions": {
     "allow": [
-      "Skill(claude-api)",
-      "Skill(claude-api:*)",
-      "Bash(pip --version)",
-      "Bash(pip install:*)"
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "Agent(*)",
+      "Skill(*)",
+      "mcp__Claude_in_Chrome__*",
+      "mcp__Claude_Preview__*",
+      "mcp__7eaa7c60-f437-4596-8b2c-f1815aec76cb__*",
+      "mcp__scheduled-tasks__*",
+      "mcp__mcp-registry__*"
     ]
   }
 }

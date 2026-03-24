@@ -1,0 +1,6 @@
+Bonjour, contactez-nous a support@example.com ou info@test.fr pour plus d informations.
+Visitez notre site https://www.example.com ou https://docs.test.fr/guide pour la documentation.
+Appelez le 06 12 34 56 78 ou le +33 1 23 45 67 89 pour un rendez-vous.
+Date de creation: 15/03/2026. Mise a jour prevue le 20 mars 2026.
+Ce texte contient des informations importantes. Les informations doivent etre extraites correctement.
+Le systeme d extraction fonctionne avec des expressions regulieres avancees.

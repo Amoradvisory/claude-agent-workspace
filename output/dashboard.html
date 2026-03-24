@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CX Dashboard</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; padding: 1.5rem; }
+  h1 { color: #58a6ff; margin-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1.2rem; }
+  .card h3 { color: #58a6ff; margin-bottom: 0.8rem; font-size: 0.95rem; }
+  .stat { font-size: 1.6rem; font-weight: bold; color: #f0f6fc; }
+  .label { font-size: 0.8rem; color: #8b949e; margin-top: 0.2rem; }
+  .bar { height: 8px; background: #21262d; border-radius: 4px; margin-top: 0.5rem; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; }
+  .green { background: #3fb950; }
+  .yellow { background: #d29922; }
+  .red { background: #f85149; }
+  .footer { margin-top: 1.5rem; text-align: center; font-size: 0.75rem; color: #484f58; }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { padding: 0.4rem 0.6rem; text-align: left; border-bottom: 1px solid #21262d; font-size: 0.85rem; }
+  th { color: #8b949e; }
+</style>
+</head>
+<body>
+<h1>CX System Dashboard</h1>
+<div class="grid">
+  <div class="card">
+    <h3>RAM</h3>
+    <div class="stat">54.7%</div>
+    <div class="label">8.9 GB libres / 19.7 GB</div>
+    <div class="bar"><div class="bar-fill green" style="width:54.7%"></div></div>
+  </div>
+  <div class="card">
+    <h3>Disque C:</h3>
+    <div class="stat">64.9%</div>
+    <div class="label">78.2 GB libres / 223.0 GB</div>
+    <div class="bar"><div class="bar-fill green" style="width:64.9%"></div></div>
+  </div>
+  <div class="card">
+    <h3>Ecran</h3>
+    <div class="stat">1600x900</div>
+    <div class="label">1 moniteur(s)</div>
+  </div>
+  <div class="card">
+    <h3>Scripts CX</h3>
+    <div class="stat">19</div>
+    <div class="label">scripts disponibles</div>
+  </div>
+</div>
+<br>
+<div class="card">
+  <h3>Top processus (RAM)</h3>
+  <table>
+    <tr><th>Processus</th><th>PID</th><th>RAM (MB)</th></tr>
+    
+    <tr><td>claude</td><td>19864</td><td>422.9</td></tr>
+    
+    <tr><td>claude</td><td>12192</td><td>385.9</td></tr>
+    
+    <tr><td>msedge</td><td>3216</td><td>371.9</td></tr>
+    
+    <tr><td>chrome</td><td>22160</td><td>314</td></tr>
+    
+    <tr><td>MsMpEng</td><td>4972</td><td>302.6</td></tr>
+    
+    <tr><td>chrome</td><td>3420</td><td>272.4</td></tr>
+    
+    <tr><td>claude</td><td>5076</td><td>227.3</td></tr>
+    
+    <tr><td>ChatGPT</td><td>13828</td><td>184.1</td></tr>
+    
+    <tr><td>claude</td><td>11504</td><td>176.5</td></tr>
+    
+    <tr><td>msedgewebview2</td><td>9496</td><td>176</td></tr>
+    
+  </table>
+</div>
+<div class="footer">Genere le 2026-03-15 06:15 par CX Dashboard</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "local-api",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["scripts/quick_api.py", "--port", "8000"],
+      "port": 8000
+    },
+    {
+      "name": "web-app",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "output", "-l", "3000"],
+      "port": 3000
+    },
+    {
+      "name": "promptvault",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["start-promptvault.js", "dev", "--port", "3001"],
+      "port": 3001
+    }
+  ]
+}

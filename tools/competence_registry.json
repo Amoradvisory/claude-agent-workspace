@@ -1,0 +1,189 @@
+{
+  "_meta": {
+    "description": "Registre de toutes les competences du Super Codex",
+    "version": "7.0",
+    "last_updated": "2026-03-15"
+  },
+  "competences": {
+    "system_monitoring": {
+      "type": "script",
+      "files": ["scripts/system_info.py", "scripts/system_check.py"],
+      "cx_commands": ["system", "check"],
+      "capabilities": ["CPU", "RAM", "disk", "battery", "processes"],
+      "parity": "95% vs system-server.mjs"
+    },
+    "desktop_automation": {
+      "type": "script",
+      "files": ["scripts/desktop_control.py"],
+      "cx_commands": ["desktop"],
+      "capabilities": ["list_windows", "focus", "screenshot", "open", "close", "clipboard", "sendkeys", "screen_info", "minimize", "maximize"],
+      "parity": "85% vs desktop-server.mjs"
+    },
+    "web_research": {
+      "type": "script",
+      "files": ["scripts/web_search.py", "scripts/web_fetch.py"],
+      "cx_commands": ["search", "fetch"],
+      "capabilities": ["DuckDuckGo search", "instant answers", "HTTP fetch", "save to file"],
+      "parity": "80% vs search-server.mjs"
+    },
+    "document_reading": {
+      "type": "script",
+      "files": ["scripts/doc_reader.py"],
+      "cx_commands": ["read", "info"],
+      "capabilities": ["PDF read/info", "Excel read/info", "CSV read/info", "page ranges", "sheet selection"],
+      "parity": "90% vs documents-server.mjs"
+    },
+    "document_generation": {
+      "type": "script",
+      "files": ["scripts/doc_gen.py", "scripts/report_gen.py"],
+      "cx_commands": ["doc", "report"],
+      "capabilities": ["Word .docx premium (4 palettes, styled tables, headers/footers)", "PowerPoint .pptx", "Excel .xlsx (auto-charts)", "PDF (reportlab)", "HTML reports", "system dashboard", "Jinja2 templates"],
+      "parity": "N/A (premium capability)"
+    },
+    "pdf_tools": {
+      "type": "script",
+      "files": ["scripts/pdf_tools.py"],
+      "cx_commands": ["pdf"],
+      "capabilities": ["merge multi-PDF", "split page ranges", "watermark (diagonal transparent)", "info/metadata", "page count"],
+      "parity": "N/A (new capability)"
+    },
+    "quality_control": {
+      "type": "script",
+      "files": ["scripts/quality_check.py"],
+      "cx_commands": ["quality"],
+      "capabilities": ["text analysis (issues detection)", "stats (words, Flesch readability, top words)", "duplicate lines finder", "text normalizer (whitespace/trailing)"],
+      "parity": "N/A (new capability)"
+    },
+    "file_conversion": {
+      "type": "script",
+      "files": ["scripts/file_convert.py", "scripts/batch_process.py"],
+      "cx_commands": ["convert", "batch"],
+      "capabilities": ["CSV<->XLSX", "CSV<->JSON", "XLSX<->JSON", "CSV<->TSV", "MD->HTML", "CSV->HTML", "XLSX->HTML", "JSON<->YAML", "batch convert", "batch read", "batch rename"],
+      "parity": "100%"
+    },
+    "project_management": {
+      "type": "script",
+      "files": ["scripts/scaffold_project.py", "scripts/git_quick.py", "scripts/gh_helper.py"],
+      "cx_commands": ["scaffold", "git", "gh"],
+      "capabilities": ["project scaffolding", "git shortcuts", "changelog", "GitHub PRs/issues/CI/repos"],
+      "parity": "N/A (new capability)"
+    },
+    "automation": {
+      "type": "script",
+      "files": ["scripts/macros.py", "scripts/memory_store.py"],
+      "cx_commands": ["macro", "memory"],
+      "capabilities": ["named macros", "custom macros", "persistent key-value store", "cross-session context"],
+      "parity": "90% vs memory MCP"
+    },
+    "api_integration": {
+      "type": "script",
+      "files": ["scripts/api_client.py", "scripts/notion_quick.py"],
+      "cx_commands": ["api", "notion"],
+      "capabilities": ["universal REST client", "Notion search", "any API callable"],
+      "parity": "N/A (new capability)"
+    },
+    "code_quality": {
+      "type": "script",
+      "files": ["scripts/self_test.py", "scripts/checklist.py"],
+      "cx_commands": ["test", "checklist"],
+      "capabilities": ["26 auto-tests", "6 checklists", "CI validation"],
+      "parity": "N/A (new capability)"
+    },
+    "knowledge_base": {
+      "type": "data",
+      "files": ["tools/snippets.json", "tools/checklists.json", "tools/competence_registry.json"],
+      "cx_commands": ["snippet", "checklist"],
+      "capabilities": ["code snippets library", "workflow checklists", "competence registry"],
+      "parity": "N/A (new capability)"
+    },
+    "infrastructure": {
+      "type": "config",
+      "files": ["scripts/_common.py", "scripts/env_loader.py", "configs/.env", ".claude/settings.local.json", ".claude/launch.json"],
+      "capabilities": ["shared utilities", "secure token loading", "structured logging", "YOLO permissions", "dev server config"]
+    },
+    "memory_system": {
+      "type": "data",
+      "files": ["memory/log.md", "memory/shared_context.md", "memory/store.json"],
+      "capabilities": ["activity journal", "cross-agent context", "persistent KV store", "structured activity log"]
+    },
+    "image_processing": {
+      "type": "script",
+      "files": ["scripts/image_tools.py"],
+      "cx_commands": ["image"],
+      "capabilities": ["info/EXIF", "resize (px/%/ratio)", "compress JPEG", "watermark text", "convert formats (PNG/JPEG/WEBP/BMP/TIFF)", "crop", "thumbnail", "rotate", "flip", "batch operations"],
+      "parity": "N/A (new capability)"
+    },
+    "data_analysis": {
+      "type": "script",
+      "files": ["scripts/data_analyzer.py"],
+      "cx_commands": ["data"],
+      "capabilities": ["profile (types/nulls/distributions/outliers)", "summary stats", "compare 2 datasets", "filter (pandas query)", "sort", "group by (count/sum/mean/min/max)", "pivot table", "chart HTML (bar/line/pie/doughnut) via Chart.js", "head/columns"],
+      "parity": "N/A (new capability)"
+    },
+    "text_processing": {
+      "type": "script",
+      "files": ["scripts/text_transform.py"],
+      "cx_commands": ["text"],
+      "capabilities": ["extract emails/URLs/phones/dates", "extractive summarization", "find & replace (text + regex)", "case conversion", "slugify", "word/line count", "line operations (unique/sort/reverse)", "Jinja2 template rendering"],
+      "parity": "N/A (new capability)"
+    },
+    "email": {
+      "type": "script",
+      "files": ["scripts/email_sender.py", "configs/smtp.json"],
+      "cx_commands": ["email"],
+      "capabilities": ["SMTP send (TLS/SSL)", "HTML emails", "attachments", "CC/BCC", "3 templates (rapport/notification/alerte)", "config wizard"],
+      "parity": "N/A (new capability)"
+    },
+    "github_ci": {
+      "type": "script",
+      "files": ["scripts/gh_ci.py"],
+      "cx_commands": ["ghci"],
+      "capabilities": ["PR list/view/diff/reviews/files", "CI checks/runs/run-view/run-log", "failure summary", "branches/commits/diff/blame"],
+      "parity": "N/A (MCP-level GitHub/CI)",
+      "prerequis": "gh auth login"
+    },
+    "database_explorer": {
+      "type": "script",
+      "files": ["scripts/db_explorer.py", "configs/db_connection.json"],
+      "cx_commands": ["db"],
+      "capabilities": ["connect (SQLite/PostgreSQL/MySQL/MSSQL)", "tables/columns/indexes/schema", "read-only query with mutation guard", "EXPLAIN plans", "foreign keys/relations", "column stats", "diagnostic (missing PK/indexes/empty tables)"],
+      "parity": "N/A (MCP-level DB)",
+      "constraints": "strictly read-only, mutation blocked"
+    },
+    "observability": {
+      "type": "script",
+      "files": ["scripts/observability.py"],
+      "cx_commands": ["obs"],
+      "capabilities": ["log parsing (multi-format timestamps)", "error extraction with stack traces", "stats by level", "timeline by hour", "Sentry API integration", "HTTP health check", "latency measurement (p50/p95/p99)", "Prometheus metrics reader", "temporal correlation", "intelligent digest with verdict"],
+      "parity": "N/A (MCP-level observability)",
+      "prerequis_optional": "SENTRY_TOKEN, SENTRY_ORG in configs/.env"
+    },
+    "repo_onboarding": {
+      "type": "script",
+      "files": ["scripts/repo_onboard.py"],
+      "cx_commands": ["onboard"],
+      "capabilities": ["auto-detect stack (Python/Node/Go/Rust/Java/Ruby/PHP/.NET)", "detect package managers", "find entrypoints", "detect build/test/lint commands", "CI/CD detection", "Docker detection", "monorepo detection", "structure analysis", "README preview"],
+      "parity": "N/A (skill)"
+    },
+    "test_triage": {
+      "type": "script",
+      "files": ["scripts/test_triage.py"],
+      "cx_commands": ["triage"],
+      "capabilities": ["auto-detect test framework (pytest/jest/vitest/go/cargo/rspec/mocha)", "run and parse results", "classify failures (flaky/environment/regression)", "rerun for flaky detection", "isolate minimal repro command", "triage report"],
+      "parity": "N/A (skill)"
+    },
+    "performance_investigation": {
+      "type": "script",
+      "files": ["scripts/perf_investigate.py"],
+      "cx_commands": ["perf"],
+      "capabilities": ["HTTP benchmark (p50/p95/p99)", "Python cProfile profiling", "tracemalloc memory analysis", "system state snapshot (CPU/RAM/processes)", "hotspot detection (N+1/nested loops/string concat)", "full endpoint diagnosis", "A/B performance comparison", "structured recommendations"],
+      "parity": "N/A (skill)"
+    },
+    "mcp_integrations": {
+      "type": "connector",
+      "files": ["CLAUDE.md"],
+      "capabilities": ["Notion (cloud MCP)", "Chrome (extension MCP)", "Preview (dev servers)", "Scheduled Tasks", "MCP Registry"],
+      "available_marketplace": ["asana", "context7", "firebase", "github", "gitlab", "greptile", "linear", "playwright", "serena", "slack", "stripe", "supabase"]
+    }
+  }
+}
