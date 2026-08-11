@@ -1,94 +1,84 @@
-# PiloteCours — étude de cas pédagogique
+# PiloteCours — mini–case study public
 
-## Problème de terrain
+> Un cockpit Android hors ligne pour aider un enseignant débutant à garder le fil d’une séance sans transformer son téléphone en sapin de Noël pédagogique.
 
-Un enseignant, particulièrement lorsqu’il débute dans un groupe ou dans un nouvel établissement, doit gérer simultanément plusieurs dimensions : entrée en classe, consignes, rythme, transitions, posture, recadrages, activité des élèves et clôture de séance.
+[Voir le code source](https://github.com/Amoradvisory/claude-agent-workspace/tree/master/PiloteCours) · [Lire le README technique](./README.md)
 
-Le risque n’est pas seulement de « manquer de contenu », mais de perdre de la bande passante cognitive au moment où l’attention doit rester sur la classe.
+## 1. Problème observé
 
-## Hypothèse de conception
+En situation de cours, l’enseignant ne manque pas forcément d’informations : il manque de disponibilité mentale. Chercher une consigne, une phrase de recadrage ou l’étape suivante dans un document long augmente la charge cognitive au moment précis où l’attention doit rester dans la classe.
 
-Créer un cockpit mobile minimaliste, consultable en quelques secondes, qui accompagne l’enseignant pendant les différentes phases d’une séance sans exiger de connexion Internet ni de navigation complexe.
+L’hypothèse produit est donc simple : un outil utile en séance doit être lisible en quelques secondes, utilisable à une main et disponible sans réseau.
 
-Le dispositif devait donc privilégier :
+## 2. Réponse conçue
 
-- accès immédiat ;
-- usage à une main ;
-- fonctionnement hors ligne ;
-- contraste élevé ;
-- informations courtes et actionnables ;
-- navigation par phases de cours ;
-- accès rapide aux recadrages ;
-- mémorisation du dernier écran et des favoris.
+PiloteCours organise la séance en huit écrans courts :
 
-## Solution réalisée
-
-PiloteCours est une application Android native structurée autour de huit écrans :
-
-1. Accueil ;
-2. Avant d’entrer ;
+1. accueil ;
+2. avant d’entrer ;
 3. 0–15 minutes ;
 4. 15–45 minutes ;
 5. 45–120 minutes ;
-6. Recadrages rapides ;
-7. Mode discret ;
-8. Fin de séance.
+6. recadrages rapides ;
+7. mode discret ;
+8. fin de séance.
 
-Elle fonctionne intégralement hors ligne et ne nécessite ni compte, ni backend, ni cloud.
+L’interface privilégie de grands boutons, un thème sombre, trois tailles de texte et une navigation séquentielle. Un accès permanent aux recadrages réduit le nombre de gestes nécessaires lorsqu’une réaction rapide est utile.
 
-## Ce que le projet démontre
+## 3. Décisions de conception vérifiables
 
-### 1. Traduction d’un besoin métier en dispositif
+- **Local-first** : aucun backend, compte ou service cloud.
+- **Hors ligne** : le contenu pédagogique est embarqué dans l’application.
+- **Continuité d’usage** : le dernier écran, les favoris et la taille du texte sont mémorisés avec DataStore.
+- **Usage mobile réel** : orientation portrait et interface pensée pour une consultation brève.
+- **Faible complexité opérationnelle** : une activité Compose, une navigation claire et pas de dépendance métier lourde.
 
-Le point de départ n’est pas une technologie. Il s’agit d’un problème concret d’enseignement : soutenir la conduite de séance sans détourner l’attention de la classe.
+Ces choix sont visibles dans [MainActivity.kt](https://github.com/Amoradvisory/claude-agent-workspace/blob/master/PiloteCours/app/src/main/java/com/pilotecours/app/MainActivity.kt), [PreferencesManager.kt](https://github.com/Amoradvisory/claude-agent-workspace/blob/master/PiloteCours/app/src/main/java/com/pilotecours/app/data/PreferencesManager.kt) et [Navigation.kt](https://github.com/Amoradvisory/claude-agent-workspace/blob/master/PiloteCours/app/src/main/java/com/pilotecours/app/navigation/Navigation.kt).
 
-### 2. Structuration pédagogique
+## 4. Ce que cette preuve démontre
 
-Le découpage de l’application suit le déroulement temporel d’une séance et transforme des principes de gestion de classe en actions consultables au bon moment.
+- transformation d’une friction de terrain en parcours produit court ;
+- arbitrage en faveur de la sobriété, de l’autonomie et de la charge cognitive minimale ;
+- réalisation Android native avec Kotlin, Jetpack Compose, Material 3, Navigation Compose et DataStore ;
+- conception compatible avec une logique de protection des données : aucune donnée d’élève n’est nécessaire au fonctionnement.
 
-### 3. Conception centrée utilisateur
+## 5. Données et sécurité
 
-L’interface est pensée pour un usage réel en classe : portrait, une main, mode sombre, très peu de texte à l’écran et fonctionnement sans réseau.
+Le produit n’exige ni nom d’élève, ni note, ni identifiant, ni connexion. Les préférences conservées localement concernent uniquement l’interface : écran récent, favoris et taille du texte.
 
-### 4. Orchestration d’outils et d’agents
+Cette architecture réduit fortement la surface de risque, mais elle ne remplace pas un audit de sécurité si de futures fonctions introduisent des données personnelles.
 
-Le projet a été produit dans un environnement de travail assisté par agents IA. La compétence recherchée n’est pas de revendiquer un développement logiciel traditionnel, mais de montrer la capacité à :
+## 6. État réel de la preuve
 
-- formuler un besoin ;
-- définir les contraintes ;
-- piloter la production ;
-- vérifier le résultat ;
-- faire évoluer l’outil en fonction de l’usage.
+### Vérifié dans le dépôt
 
-## Positionnement dans le portfolio ENSEIGNANT IA EXPERT
+- structure Android native complète ;
+- huit routes déclarées ;
+- persistance locale des préférences ;
+- configuration actuelle : `minSdk 26`, `targetSdk 36`, portrait ;
+- code source public et inspectable.
 
-PiloteCours constitue un premier démonstrateur public de la capacité à relier :
+### Non vérifié dans cette mission
 
-**expérience de l’enseignement + conception pédagogique + IA/agents + outil concret**.
+- compilation APK sur une chaîne Android locale ;
+- tests sur appareil physique ;
+- audit d’accessibilité ;
+- tests utilisateurs avec enseignants débutants ;
+- publication d’un APK ou d’une vidéo de démonstration.
 
-Il peut servir de support lors d’un entretien, d’une candidature, d’une discussion avec un opérateur de formation ou d’un échange autour du numérique éducatif.
+Aucun de ces points n’est présenté comme acquis. Une preuve crédible sait aussi dire où finit le béton et où commence le brouillard.
 
-## Limites actuelles
+## 7. Prochaine expérimentation à fort levier
 
-Le projet reste un prototype personnel. Il ne faut pas présenter comme établis :
+Ajouter une CI Android reproductible, publier un APK de démonstration signé et joindre une courte vidéo montrant trois scénarios : reprendre une phase, ouvrir un recadrage, activer le mode discret.
 
-- un déploiement institutionnel ;
-- une utilisation par d’autres enseignants ;
-- un impact mesuré sur les apprentissages ;
-- des gains de temps quantifiés ;
-- une validation scientifique ou institutionnelle.
+Le succès serait mesuré par :
 
-Ces éléments ne pourront être revendiqués qu’après expérimentation réelle documentée.
+- build automatique vert ;
+- installation sur un appareil Android 8+ ;
+- accès à l’écran utile en moins de deux gestes ;
+- retour de trois enseignants sur la lisibilité et la discrétion en situation.
 
-## Pistes d’évolution à forte valeur
+## 8. Origine
 
-- personnalisation des phases selon le type de cours ;
-- création de scénarios configurables par l’enseignant ;
-- journal de fin de séance très court ;
-- export anonymisé des observations vers un système de mémoire pédagogique ;
-- mode « formateur » permettant d’utiliser l’application comme support lors d’une formation à la conduite de séance ;
-- adaptation web/PWA pour démonstration instantanée sans installation Android.
-
-## Critère de réussite du prochain cycle
-
-Faire de PiloteCours non seulement une application existante, mais une **preuve professionnelle facilement démontrable en moins de cinq minutes** à un responsable pédagogique, un recruteur ou un opérateur de formation.
+Ce case study documente sans déplacer ni réécrire l’application existante. La source canonique reste le dossier [`PiloteCours/`](https://github.com/Amoradvisory/claude-agent-workspace/tree/master/PiloteCours) du dépôt `Amoradvisory/claude-agent-workspace`.
